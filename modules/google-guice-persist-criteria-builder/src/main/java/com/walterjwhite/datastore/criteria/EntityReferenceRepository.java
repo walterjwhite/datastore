@@ -1,6 +1,5 @@
 package com.walterjwhite.datastore.criteria;
 
-import com.google.inject.persist.Transactional;
 import com.walterjwhite.datastore.api.model.entity.AbstractEntity;
 import com.walterjwhite.datastore.api.model.entity.EntityReference;
 import com.walterjwhite.datastore.api.model.entity.EntityReference_;
@@ -10,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Predicate;
+import javax.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

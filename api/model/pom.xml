@@ -1,35 +1,29 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <parent>
-        <groupId>com.walterjwhite.infrastructure.datastore</groupId>
-        <artifactId>api</artifactId>
-        <version>0.0.15-SNAPSHOT</version>
-    </parent>
-
-    <groupId>com.walterjwhite.infrastructure.datastore.api</groupId>
-    <artifactId>model</artifactId>
-    <packaging>jar</packaging>
-
-    <name>Datastore - API - model</name>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.walterjwhite.infrastructure.dependencies</groupId>
-            <artifactId>hibernate</artifactId>
-            <version>0.0.15-SNAPSHOT</version>
-            <type>pom</type>
-        </dependency>
-
-        <!-- TODO: support this in the future -->
-        <!-- TODO: also checkout objectdb -->
-        <!--<dependency>-->
-            <!--<groupId>com.walterjwhite.infrastructure.dependencies</groupId>-->
-            <!--<artifactId>eclipselink</artifactId>-->
-            <!--<version>0.1-SNAPSHOT</version>-->
-            <!--<type>pom</type>-->
-        <!--</dependency>-->
-    </dependencies>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.walterjwhite.infrastructure.datastore</groupId>
+    <artifactId>api</artifactId>
+    <version>0.0.15-SNAPSHOT</version>
+  </parent>
+  <groupId>com.walterjwhite.infrastructure.datastore.api</groupId>
+  <artifactId>model</artifactId>
+  <packaging>jar</packaging>
+  <name>Datastore - API - model</name>
+  <dependencies>
+    <dependency>
+      <groupId>com.walterjwhite.infrastructure.dependencies</groupId>
+      <artifactId>hibernate</artifactId>
+      <version>0.0.15-SNAPSHOT</version>
+      <type>pom</type>
+    </dependency>
+    <!-- TODO: support this in the future -->
+    <!-- TODO: also checkout objectdb -->
+    <!--<dependency>-->
+    <!--<groupId>com.walterjwhite.infrastructure.dependencies</groupId>-->
+    <!--<artifactId>eclipselink</artifactId>-->
+    <!--<version>0.1-SNAPSHOT</version>-->
+    <!--<type>pom</type>-->
+    <!--</dependency>-->
+  </dependencies>
 </project>

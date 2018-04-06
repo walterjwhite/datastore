@@ -1,7 +1,6 @@
 package com.walterjwhite.datastore.api.model.entity;
 
 import java.io.Serializable;
-import java.util.Objects;
 import javax.persistence.*;
 
 /** TODO: provide a base class where an ID is a UUID where the first few bytes are from the node. */
@@ -31,24 +30,20 @@ public abstract class AbstractEntity implements Serializable {
     this.version = version;
   }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    AbstractEntity that = (AbstractEntity) o;
-    return Objects.equals(id, that.id);
-  }
+  public abstract boolean equals(Object o);
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(id);
-  }
+  public abstract int hashCode();
 
   @PrePersist
   public void onPrePersist() {
     if (id == null) id = onDoPrePersist();
   }
 
+  /**
+   * This serves to log the hashCode as well as allow the id generation strategy to be overridden.
+   *
+   * @return the id for this entity, the hashCode by default, could be UUID.
+   */
   protected String onDoPrePersist() {
     return Integer.toString(hashCode());
   }

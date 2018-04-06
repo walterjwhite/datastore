@@ -45,4 +45,8 @@ public class AbstractRepository<EntityType extends AbstractEntity> extends Repos
 
     final Predicate predicate = null;
   }
+
+  public EntityType findById(final String id) {
+    return entityManager.find(entityTypeClass, id);
+  }
 }

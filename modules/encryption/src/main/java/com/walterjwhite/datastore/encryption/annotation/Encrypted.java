@@ -7,6 +7,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+// TODO: integrate policies configuring encryption algorithm, strength, etc. available, configure
+// per tenant, may not be per JVM
 /** Indicates a field is encrypted and can be decrypted. */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)

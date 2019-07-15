@@ -1,50 +1,35 @@
 package com.walterjwhite.datastore.api.model.entity;
 
+// import com.walterjwhite.datastore.api.annotation.Version;
+import com.walterjwhite.datastore.api.annotation.PrimaryKey;
 import java.io.Serializable;
 import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /** TODO: provide a base class where an ID is a UUID where the first few bytes are from the node. */
+// @Version(strategy = VersionStrategy.VERSION_NUMBER)
+// @PersistenceAware
+@Getter
+@Setter
+@ToString(doNotUseGetters = true)
+@Embeddable
 @MappedSuperclass
-public abstract class AbstractEntity implements Serializable {
+public abstract class AbstractEntity implements Serializable /*, StoreCallback*/ {
+  @PrimaryKey @Id protected Integer id;
 
-  @Id protected String id;
-
-  @Version
-  @Column(columnDefinition = "integer DEFAULT 0", nullable = false)
-  protected Long version = 0L;
-
-  public String getId() {
-    return id;
-  }
-
-  /** Called at the time of persistence */
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Long getVersion() {
-    return (version);
-  }
-
-  public void setVersion(final Long version) {
-    this.version = version;
-  }
-
-  public abstract boolean equals(Object o);
-
-  public abstract int hashCode();
-
-  @PrePersist
-  public void onPrePersist() {
-    if (id == null) id = onDoPrePersist();
-  }
+  @Version protected int version;
 
   /**
    * This serves to log the hashCode as well as allow the id generation strategy to be overridden.
    *
    * @return the id for this entity, the hashCode by default, could be UUID.
    */
-  protected String onDoPrePersist() {
-    return Integer.toString(hashCode());
+  // TODO: confirm what should happen if one of the values in the PK changes, this value should also
+  // change ...
+  @PrePersist
+  public void onPreCreate() {
+    if (id == null) id = hashCode();
   }
 }

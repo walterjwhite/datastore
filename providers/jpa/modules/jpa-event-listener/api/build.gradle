@@ -1,0 +1,5 @@
+group = 'com.walterjwhite.infrastructure.datastore.api'
+description = 'Datastore - API - event'
+dependencies {
+  compile project(':infrastructure:datastore:api:model')
+}

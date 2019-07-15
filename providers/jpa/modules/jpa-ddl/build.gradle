@@ -1,0 +1,5 @@
+group = 'com.walterjwhite.infrastructure.datastore.modules'
+description = 'Datastore - modules - jpa-ddl'
+dependencies {
+  compile project(':infrastructure:datastore:modules:property')
+}

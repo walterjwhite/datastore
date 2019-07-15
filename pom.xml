@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.walterjwhite</groupId>
+    <groupId>com.walterjwhite.java</groupId>
     <artifactId>infrastructure</artifactId>
     <version>0.0.15-SNAPSHOT</version>
   </parent>
-  <groupId>com.walterjwhite.infrastructure</groupId>
+  <groupId>com.walterjwhite.java.infrastructure</groupId>
   <artifactId>datastore</artifactId>
   <packaging>pom</packaging>
   <name>Datastore</name>
@@ -14,9 +14,10 @@
   <url>https://github.com/walterjwhite/datastore</url>
   <modules>
     <module>api</module>
+    <module>impl</module>
     <module>modules</module>
+    <module>providers</module>
   </modules>
-  <dependencies/>
   <scm>
     <connection>scm:git:ssh://git@localhost:/projects/active/github.com/java/infrastructure/datastore.git</connection>
     <developerConnection>scm:git:ssh://git@localhost:/projects/active/github.com/java/infrastructure/datastore.git</developerConnection>

@@ -1,0 +1,6 @@
+group = 'com.walterjwhite.infrastructure.datastore.modules'
+description = 'Datastore - modules - google-guice-guava-jpa-event-listener'
+dependencies {
+  compile project(':infrastructure:datastore:api:event')
+  compile project(':infrastructure:datastore:modules:guava-event-bus')
+}

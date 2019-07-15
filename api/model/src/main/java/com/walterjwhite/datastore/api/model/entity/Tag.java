@@ -3,19 +3,29 @@ package com.walterjwhite.datastore.api.model.entity;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
+@Getter
+@Setter
+@ToString(doNotUseGetters = true, callSuper = true)
+@NoArgsConstructor
+// @PersistenceCapable
 @Entity
 public class Tag extends AbstractNamedEntity {
 
   @ManyToOne @JoinColumn protected Tag parent;
 
-  @OneToMany(cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "parent")
   protected Set<Tag> children;
 
-  @OneToMany(cascade = CascadeType.ALL)
-  @JoinTable
-  protected List<EntityReference> entityReferences = new ArrayList();
+  @OneToMany protected List<EntityReference> entityReferences = new ArrayList();
 
   public Tag(String name, Tag parent) {
     super(name);
@@ -24,33 +34,5 @@ public class Tag extends AbstractNamedEntity {
 
   public Tag(String name) {
     super(name);
-  }
-
-  public Tag() {
-    super();
-  }
-
-  public Tag getParent() {
-    return parent;
-  }
-
-  public void setParent(Tag parent) {
-    this.parent = parent;
-  }
-
-  public Set<Tag> getChildren() {
-    return children;
-  }
-
-  public void setChildren(Set<Tag> children) {
-    this.children = children;
-  }
-
-  public List<EntityReference> getEntityReferences() {
-    return entityReferences;
-  }
-
-  public void setEntityReferences(List<EntityReference> entityReferences) {
-    this.entityReferences = entityReferences;
   }
 }

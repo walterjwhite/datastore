@@ -1,0 +1,7 @@
+group = 'com.walterjwhite.infrastructure.datastore.modules'
+description = 'data-pipe - modules - jdbc-run'
+dependencies {
+  compile project(':infrastructure:datastore:modules:jdbc')
+  compile project(':infrastructure:datastore:modules:property')
+  compile project(':infrastructure:datastore:modules:snakeyaml')
+}

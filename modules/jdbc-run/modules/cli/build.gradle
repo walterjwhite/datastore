@@ -1,0 +1,9 @@
+group = 'com.walterjwhite.infrastructure.datastore.modules'
+description = 'data-pipe - modules - jdbc-run-cli'
+dependencies {
+  compile project(':infrastructure:datastore:modules:jdbc-run')
+  compile project(':infrastructure:datastore:modules:cli')
+  compile project(':infrastructure:dependencies:p6spy')
+  compile project(':infrastructure:dependencies:hikari-jdbc-connection-pool')
+  compile project(':infrastructure:dependencies:hibernate-hikari')
+}

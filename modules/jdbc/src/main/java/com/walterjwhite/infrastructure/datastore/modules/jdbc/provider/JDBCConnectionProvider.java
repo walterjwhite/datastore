@@ -2,13 +2,17 @@ package com.walterjwhite.infrastructure.datastore.modules.jdbc.provider;
 
 import com.walterjwhite.infrastructure.datastore.modules.jdbc.model.JDBCConfiguration;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class JDBCConnectionProvider {
-  public static Connection get(JDBCConfiguration jdbcConfiguration) {
-    jdbcConfiguration.getDriverClassName();
-    jdbcConfiguration.getJdbcUrl();
-    jdbcConfiguration.getUsername();
-    jdbcConfiguration.getPassword();
-    return null;
+  public static Connection get(JDBCConfiguration jdbcConfiguration)
+      throws ClassNotFoundException, SQLException {
+    // Class.forName(jdbcConfiguration.getDriverClassName());
+
+    return (DriverManager.getConnection(
+        jdbcConfiguration.getJdbcUrl(),
+        jdbcConfiguration.getUsername(),
+        jdbcConfiguration.getPassword()));
   }
 }

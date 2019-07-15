@@ -1,15 +1,17 @@
 package com.walterjwhite.datastore.api.model.entity;
 
 import java.util.Objects;
-import java.util.UUID;
-import javax.persistence.*;
+import java.util.concurrent.ThreadLocalRandom;
+import javax.persistence.Embeddable;
+import javax.persistence.MappedSuperclass;
 
+// @PersistenceAware
+@Embeddable
 @MappedSuperclass
 public abstract class AbstractUUIDEntity extends AbstractEntity {
-
-  @Override
-  protected String onDoPrePersist() {
-    return UUID.randomUUID().toString();
+  public AbstractUUIDEntity() {
+    super();
+    id = ThreadLocalRandom.current().nextInt(Integer.MIN_VALUE, Integer.MAX_VALUE) + 1;
   }
 
   @Override
@@ -22,7 +24,6 @@ public abstract class AbstractUUIDEntity extends AbstractEntity {
 
   @Override
   public int hashCode() {
-
-    return Objects.hash(id);
+    return id;
   }
 }

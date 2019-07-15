@@ -1,0 +1,6 @@
+group = 'com.walterjwhite.infrastructure.datastore.modules'
+description = 'Datastore - modules - google-guice-persist'
+dependencies {
+  compile project(':infrastructure:datastore:modules:property')
+  compile project(':infrastructure:dependencies:google-guice-persist')
+}

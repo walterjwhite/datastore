@@ -1,0 +1,6 @@
+group = 'com.walterjwhite.infrastructure.datastore.modules'
+description = 'data-pipe - modules - jdbc'
+dependencies {
+  compile project(':infrastructure:datastore:api:model')
+  compile project(':infrastructure:datastore:modules:jdbc')
+}

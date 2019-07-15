@@ -1,0 +1,5 @@
+group = 'com.walterjwhite.infrastructure.datastore.modules'
+description = 'Datastore - modules - google-guice-persist-criteria-builder'
+dependencies {
+  compile project(':infrastructure:datastore:modules:google-guice-persist')
+}

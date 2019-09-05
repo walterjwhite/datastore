@@ -23,8 +23,6 @@ public abstract class AbstractEntity implements Serializable /*, StoreCallback*/
 
   /**
    * This serves to log the hashCode as well as allow the id generation strategy to be overridden.
-   *
-   * @return the id for this entity, the hashCode by default, could be UUID.
    */
   // TODO: confirm what should happen if one of the values in the PK changes, this value should also
   // change ...

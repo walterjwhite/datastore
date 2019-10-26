@@ -100,7 +100,7 @@ public class JpaRepository implements Repository {
       //          create(query.getPersistenceOptions()[0].getTransientEntity());
     }
 
-    throw (e);
+    throw e;
   }
 
   protected <EntityType extends AbstractEntity> EntityType doCreate(EntityType entity) {

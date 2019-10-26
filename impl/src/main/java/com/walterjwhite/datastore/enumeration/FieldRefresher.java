@@ -42,7 +42,7 @@ public enum FieldRefresher {
             && AbstractEntity.class.isAssignableFrom(
                 ((Iterable) field.get(entity)).iterator().next().getClass()));
       } catch (IllegalAccessException e) {
-        throw (new RuntimeException("Not properly configured", e));
+        throw new RuntimeException("Not properly configured", e);
       }
     }
 

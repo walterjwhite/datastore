@@ -27,7 +27,7 @@ public class JDBCAwareContainer implements AutoCloseable {
       DriverManager.registerDriver(new DriverShim(driver));
       this.connection = JDBCConnectionProvider.get(jdbcConfiguration);
     } catch (Exception e) {
-      throw (new RuntimeException("Error configuring", e));
+      throw new RuntimeException("Error configuring", e);
     }
   }
 

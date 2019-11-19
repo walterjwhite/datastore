@@ -1,6 +1,7 @@
 package com.walterjwhite.datastore.api.enumeration;
 
 import com.walterjwhite.datastore.api.model.entity.EntityType;
+import java.lang.reflect.InvocationTargetException;
 import javax.naming.ConfigurationException;
 
 public enum EntityAtributeType {
@@ -45,8 +46,12 @@ public enum EntityAtributeType {
         throws ConfigurationException {
       try {
         final Class entityTypeClass = Class.forName(entityType.getName());
-        return (ActualEntityType) entityTypeClass.newInstance();
-      } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
+        return (ActualEntityType) entityTypeClass.getDeclaredConstructor().newInstance();
+      } catch (ClassNotFoundException
+          | IllegalAccessException
+          | InstantiationException
+          | NoSuchMethodException
+          | InvocationTargetException e) {
         throw buildException(e, "Class", entityType);
       }
     }

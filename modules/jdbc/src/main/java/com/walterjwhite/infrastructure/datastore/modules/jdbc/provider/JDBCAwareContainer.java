@@ -22,6 +22,7 @@ public class JDBCAwareContainer implements AutoCloseable {
       final Driver driver =
           (Driver)
               Class.forName(jdbcConfiguration.getDriverClassName(), true, urlClassLoader)
+                  .getDeclaredConstructor()
                   .newInstance();
 
       DriverManager.registerDriver(new DriverShim(driver));

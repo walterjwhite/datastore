@@ -19,7 +19,7 @@ public class DefaultQueryBuilderResolver implements QueryBuilderResolver {
     for (final Class queryBuilderClass : reflections.getTypesAnnotatedWith(Supports.class)) {
       if (queryConfiguration.getClass().equals(getSupports(queryBuilderClass).value())) {
         try {
-          return (QueryBuilder) queryBuilderClass.newInstance();
+          return (QueryBuilder) queryBuilderClass.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
           throw new RuntimeException("Improperly configured.");
         }
